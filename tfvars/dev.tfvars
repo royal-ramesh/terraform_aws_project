@@ -1,0 +1,13 @@
+terraform_version="1.9.8"
+region="ap-south-1"
+#aws_version="5.33.0"
+aws_profile="default"
+pool_cidr="10.0.0.0/16"
+#availability_zone=["ap-south-1a","ap-south-1b"]
+address_family="ipv4"
+netmask_length="8"
+map_public_ip_on_launch="true"
+public_subnet_count="2"
+private_subnet_count="1"
+igw_routes=["0.0.0.0/0"]
+vpc_name="terraform-aws-project"
