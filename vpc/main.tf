@@ -7,7 +7,7 @@ data "aws_availability_zones" "available" {
 
 
 module "ipam" {
-    source = "../../../modules/ipam"
+    source = "../../modules/ipam"
     #aws_profile = var.aws_profile
     region = var.region
     address_family = var.address_family
@@ -24,7 +24,7 @@ module "ipam" {
 
 
 module "vpc" {
-  source = "../../../modules/vpc"
+  source = "../../modules/vpc"
   
   #region = var.region
     #aws_profile = var.aws_profile 
@@ -41,7 +41,7 @@ module "vpc" {
 
 
 module "public_subnet" {
-    source = "../../../modules/subnets"
+    source = "../../modules/subnets"
     vpc_id =module.vpc.vpc_id
     #region = var.region
     #aws_profile = var.aws_profile 
@@ -58,7 +58,7 @@ module "public_subnet" {
 
 
 module "private_subnet" {
-    source = "../../../modules/subnets"
+    source = "../../modules/subnets"
     #region = var.region
     #aws_profile = var.aws_profile 
     vpc_id=module.vpc.vpc_id
@@ -72,11 +72,6 @@ module "private_subnet" {
     depends_on = [module.vpc] 
 } 
 
-resource "aws_internet_gateway" "igw" {
-  vpc_id = module.vpc.vpc_id
-
-  
-}
 
 
 
